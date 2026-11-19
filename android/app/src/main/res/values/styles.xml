@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.BattleMaps" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.BattleMaps.Fullscreen" parent="Theme.BattleMaps">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

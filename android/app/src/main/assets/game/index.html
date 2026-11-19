@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BattleMaps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- In-Game HUD -->
+        <div id="hud" class="hidden">
+            <div id="minimap-container">
+                <canvas id="minimapCanvas" width="90" height="90"></canvas>
+            </div>
+
+            <div id="stats-container">
+                <div id="percent-badge"><span id="percent-val">0.0</span>%</div>
+                <div id="kills-badge"><span id="kills-icon">⚔️</span> <span id="kills-val">0</span></div>
+            </div>
+
+            <div id="leaderboard">
+                <div class="lb-title">LEADERBOARD</div>
+                <div id="lb-entries"></div>
+            </div>
+
+            <div id="virtual-joystick" class="hidden">
+                <div id="joystick-base">
+                    <div id="joystick-stick"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start / Menu Screen -->
+        <div id="start-screen" class="screen">
+            <div class="logo-box">
+                <h1 class="game-title">BATTLE<span class="highlight">MAPS</span></h1>
+                <div class="subtitle">BY X SUPREME</div>
+            </div>
+
+            <div class="card">
+                <div class="input-group">
+                    <label for="player-name">YOUR NAME</label>
+                    <input type="text" id="player-name" maxlength="12" value="Player 1">
+                </div>
+
+                <div class="color-picker-group">
+                    <label>CHOOSE HERO COLOR</label>
+                    <div id="color-options">
+                        <button class="color-btn active" data-color="#10B981" style="background:#10B981;"></button>
+                        <button class="color-btn" data-color="#3B82F6" style="background:#3B82F6;"></button>
+                        <button class="color-btn" data-color="#EC4899" style="background:#EC4899;"></button>
+                        <button class="color-btn" data-color="#F59E0B" style="background:#F59E0B;"></button>
+                        <button class="color-btn" data-color="#8B5CF6" style="background:#8B5CF6;"></button>
+                        <button class="color-btn" data-color="#06B6D4" style="background:#06B6D4;"></button>
+                    </div>
+                </div>
+
+                <button id="play-btn" class="main-btn">PLAY NOW</button>
+            </div>
+
+            <div class="how-to-play">
+                <p>🕹️ <b>HOW TO PLAY:</b> Drag finger to steer. Conquer territory by making loops. Slice enemy trails to eliminate them!</p>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen hidden">
+            <div class="card over-card">
+                <h2 id="over-title">DEFEATED!</h2>
+                <div class="over-stats">
+                    <div class="stat-box">
+                        <span class="stat-num" id="over-percent">0.0%</span>
+                        <span class="stat-lbl">MAP CONQUERED</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" id="over-kills">0</span>
+                        <span class="stat-lbl">ENEMIES SLAIN</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" id="over-rank">#--</span>
+                        <span class="stat-lbl">FINAL RANK</span>
+                    </div>
+                </div>
+
+                <button id="restart-btn" class="main-btn">PLAY AGAIN</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
