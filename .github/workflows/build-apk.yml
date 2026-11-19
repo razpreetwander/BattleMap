@@ -22,15 +22,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.5'
 
       - name: Build APK with Gradle
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
         run: |
           cd android
           gradle assembleRelease --stacktrace
 
-      - name: Rename APK for Easy Download
+      - name: Prepare APK Output
         run: |
           mkdir -p output
           find android/app/build/outputs/apk/ -name "*.apk" -exec cp {} output/BattleMaps.apk \;
